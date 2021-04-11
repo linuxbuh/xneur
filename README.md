@@ -1,15 +1,34 @@
-X Neural Switcher - программа для автоматического переключения раскладок клавиатуры, в зависимости от набираемого текста. Т.е. при наборе текста, если он набирается на неверном языке, xneur автоматически (или по запросу) переключит язык на нужный.
-Для удобства работы имеются два режима: автоматический и ручной.
+# Description
+X Neural Switcher (http://www.xneur.ru)
 
-При работе в автоматическом режиме, xneur автоматически определяет раскладку вводимого текста и изменяет язык за вас. В этом режиме предусмотрена возможность задания приложений исключений, в которых автоматический режим будет заменён на ручной.
+It's program like Punto Switcher, but has other functionality
+and it's really better with some various functions.
 
-При работе в ручном режиме xneur не отслеживает набор, но позволяет автоматически изменять раскладку последнего набранного слова (кнопка Pause/Break), последней набранной строки (сочетание клавиш Ctrl + Break), выделенного текста (сочетание клавиш Shift + Break) и другие полезные функции.
+This utility is made for X Window System.
 
-Все приведённые выше сочетания клавиш работают и в автоматическом режиме. Если по каким-либо причинам вас не устраивают преднастроенные комбинации - вы всегда сможете поменять их в настройках программы.
-Также программа позволяет создавать собственные сочетания клавиш для запуска любых приложений.
+It is developed in Linux for now, but we're thinking it will
+work on any *nix system with X11R6 & gcc3.
 
-Принцип работы xneur аналогичен Punto Switcher.
+Latest Release and other info you can read at: http://www.xneur.ru
 
-На данный момент поддерживаются следующие языки: армянский, белорусский, болгарский, чешский, грузинский, немецкий, греческий, английский, эстонский, французский, казахский, литовский, латышский, польский, молдавский (румынский), русский, испанский, украинский и узбекский.
+## Building with CMake
+On Ubuntu first you need to install some dependencies:
+```sh
+sudo apt-get install libgstreamer1.0-dev libnotify-dev libenchant-dev libxi-dev libxtst-dev
+```
 
-Xneur изначально разрабатывался и тестировался под Linux. Позже была реализована корректная работа в FreeBSD.
+For CMake 3.13 or later, [build with this commands](https://cmake.org/cmake/help/v3.13/manual/cmake.1.html):
+```sh
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build
+```
+
+For older CMake, use following commands:
+```sh
+mkdir build
+cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release
+cmake --build .
+```
+
+xneur will appear in the `build` directory.
